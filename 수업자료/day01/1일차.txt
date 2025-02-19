@@ -1,0 +1,61 @@
+ 
+ 
+
+1~2차시
+
+학습목표:
+1. 자바소스코드를 컴파일하고 실행할 수 있다
+2. 실행가능한 클래스 구분할 수 있다 ( 실행되기 위한 약속된  main 매서드 가 있어야 한다 )
+3. 1~10까지의 순서도를 작성할 수 있다.
+4. 코딩을위한 문제해결과정 자료명세, 처리과정, 순서도 작성하는 방법을 익힌다
+5. 비트, 1바이트가 표현할 수 있는 크기를 정확히 알 수 있다.
+
+
+
+###자바코드 작성법### 
+하나!!.  모든 코드는 함수안에 작성해야 한다.
+둘!!     모든 함수는 클래스 안에 작성해야 한다
+셋!!     클래스가 실행되기 위해서는 약속된  main매서드를 가져야 한다 
+
+
+
+ ###자바코드 실행하기###
+
+Hello.java ->  컴파일  ->  실행  
+
+소스코드작성:      Hello.java
+컴파일 명령 :       javac Hello.java
+실행명령     :       java Hello
+
+
+
+
+### 다음 중 실행가능한 클래스를 고르시오 #####
+
+class Hello{ 
+    public static void main( String[] args) {
+                       System.out.println( "hello java");
+    }
+}
+
+
+class  Hello2{
+   public void  hi(){
+            System.out.println( "hi");
+   }
+}
+
+
+##  Hello2클래스를 실행하려면?
+
+class Hello2{ 
+    public static void main( String[] args) {
+            
+    }
+
+    public void  hi(){
+            System.out.println( "hi");
+    }
+}
+
+
