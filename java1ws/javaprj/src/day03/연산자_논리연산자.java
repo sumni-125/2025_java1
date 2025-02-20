@@ -11,11 +11,12 @@ public class 연산자_논리연산자 {
 		int kor=80;
 		int eng=90;
 		
-		boolean result = (kor>=90)&&(eng>=90);
-		System.out.println(result==true?"장학금지급":"장학금미지급");
 		
-		boolean result = (kor>=90)||(eng>=90);
-		System.out.println(result==true?"장학금지급":"장학금미지급");
+		boolean result1 = (kor>=90)&&(eng>=90);
+		System.out.println(result1==true?"장학금지급":"장학금미지급");
+		
+		boolean result2 = (kor>=90)||(eng>=90);
+		System.out.println(result2==true?"장학금지급":"장학금미지급");
 		
 		
 

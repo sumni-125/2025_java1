@@ -20,7 +20,7 @@ public class Scanner사용하기 {
 		
 		System.out.println(name);
 		System.out.println(kor);
-		System.out.println(eng);
+		
 		System.out.println(avg);
 	
 	}

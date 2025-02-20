@@ -7,6 +7,7 @@ public class 제어문_분기문_switch {
 		
 		int code =1;
 		int price=0;
+		int time=3;
 		
 		switch(code) {
 		
