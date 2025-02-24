@@ -12,7 +12,7 @@ public class 실습문제1번3_이수민 {
 		String[] names=new String[1000];
 		String name;//사원 이름 저장변수
 		int[][] m_pur=new int[1000][8]; //화폐 매수 저장
-		int exp=0;//출장비용 저장변수
+		int exp=0, exp_sum=0;//출장비용 저장변수
 		int index=0;//배열저장용 인덱스(행)
 		
 		loop: while(true) {
@@ -27,6 +27,7 @@ public class 실습문제1번3_이수민 {
 			names[index]=name;
 			
 			exp=sc.nextInt();
+			exp_sum+=exp;
 			while(exp>0) {
 				if(exp>=50000) {
 					
@@ -82,7 +83,17 @@ public class 실습문제1번3_이수민 {
 			}
 			System.out.println();
 		}
-	
+		System.out.println();
+		System.out.println("총 필요한 금액: "+exp_sum);
+		
+		for(int j=0;j<7;j++) {
+			for(int i=1;i<index;i++) {
+				m_pur[0][j]+=m_pur[i][j];
+			}
+			
+			System.out.print(m_unit[j]+": "+m_pur[0][j]+" ");
+		}
+		
 
 		
 	}
