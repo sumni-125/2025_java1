@@ -1,18 +1,18 @@
-package day08;
+package day09;
 
 import java.util.Scanner;
 
-public class 정보출력해보기_최지태 {
+public class 정보출력해보기 {
 
 	public static void main(String[] args) {
-		object_최지태 obj = new object_최지태();
+		object obj = new object();
 		
 		setObject(obj);
 		System.out.println("=========");
 		printObject(obj);
 	}
 
-	public static void setObject(object_최지태 obj) {
+	public static void setObject(object obj) {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("아이디 입력 : ");
 		obj.id = sc.nextInt();
@@ -24,7 +24,7 @@ public class 정보출력해보기_최지태 {
 		obj.price = sc.nextInt();
 	}
 	
-	public static void printObject(object_최지태 obj) {
+	public static void printObject(object obj) {
 		System.out.println("아이디 : " + obj.id);
 		System.out.println("이름 : " + obj.name);
 		System.out.println("개수 : " + obj.count);

@@ -1,6 +1,6 @@
-package day08;
+package day09;
 
-public class object_최지태 {
+public class object {
 	int id;
 	String name;
 	int count;

@@ -1,4 +1,4 @@
-package day07_0224;
+package day07;
 
 public class callByValue {
 

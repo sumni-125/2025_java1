@@ -1,4 +1,4 @@
-package day07;
+package day07.학생;
 
 import java.util.Scanner;
 
