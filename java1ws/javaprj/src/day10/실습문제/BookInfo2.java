@@ -6,7 +6,7 @@ public class BookInfo2 {
 	private String author;
 	private int price;
 	int quantity;
-	private int totalPrice;
+	int totalPrice;
 	
 	public BookInfo2() {
 		

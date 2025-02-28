@@ -9,6 +9,7 @@ public class BookInfo메뉴제공 {
 		
 		BookInfo2[] list = new BookInfo2[3];
 		int index=0;
+		int sumPrice=0;
 		
 		loop: while(true) {
 			System.out.println("1.장바구니등록 2.장바구니조회 3.수량변경 4.총금액계산 5.종료");
@@ -38,11 +39,12 @@ public class BookInfo메뉴제공 {
 			case 2:
 				
 				System.out.println("조회합니다.");
-				
+				sumPrice=0;
 				for(int i=0;i<index;i++) {
 					System.out.println((i+1)+". "+list[i].toString());
+					sumPrice += list[i].totalPrice;
 				}
-				
+				System.out.println("합계: "+sumPrice);
 				break;
 				
 			case 3:
@@ -63,7 +65,7 @@ public class BookInfo메뉴제공 {
 				System.out.println("변경성공!");
 				break;
 				
-			case 4:
+			case 4: 
 				
 				for(int i=0;i<index;i++) {
 					list[i].calcTotal();
