@@ -7,7 +7,7 @@ public class Student {
 	}
 	
 	public void  먹기() {
-		System.out.println( "먹기");
+		System.out.println( "먹기  ver2 ");
 	}
 	
 	public void  걷기() {

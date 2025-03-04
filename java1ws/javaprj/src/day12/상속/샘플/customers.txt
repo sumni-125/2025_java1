@@ -1,0 +1,2 @@
+송병화,song@example.com,010-1234-5678,normal
+백바울,back@example.com,010-5678-1234,vip,15.0

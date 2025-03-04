@@ -6,11 +6,12 @@ public class Professor {
 	}
 	
 	public void  먹기() {
-		System.out.println( "먹기");
+		System.out.println( "먹기 ver2");
 	}
 	
+	
 	public void  걷기() {
-		System.out.println(" 걷기  ver2");
+		System.out.println(" 걷기");
 	}
 	
 	
