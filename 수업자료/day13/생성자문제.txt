@@ -1,0 +1,30 @@
+
+class Acorn{
+
+        String id;
+        String name;
+        String phone;
+
+       public Acorn(  String id, String name, String phone ) {
+          this.id =id;
+          this.name =name;
+          this.phone =phone;
+      }
+
+      public void printInfo( ){
+        System.out.println( id ) ;
+        System.out.println( name );
+        System.out.println( phone );
+     }
+}
+
+ 1)
+Acorn을 상속받아 
+자신의 이름으로 클래스를 만들고 
+속성 두 개를 추가하시오 (이메일 또는 주소 또는 별명.. 등등)
+생성자를  만들어  자신을 정보가 객체에 담기게 하고 
+printInfo매서드를 오버라이드 하여 
+자신정보가 모두 출력되도록 하시오
+
+
+ 
