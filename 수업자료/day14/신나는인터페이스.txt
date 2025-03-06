@@ -1,0 +1,44 @@
+ 인터페이스 실습 
+
+재미있는 인터페이스 만들고 구현해 보기 !!
+마음에 드는 인터페이스를 구현하시오 
+
+
+자신의 이름으로 클래스를 작성하고 다음 중 마음에 드는 인터페이스를 구현해 봅시다 !  신난당 !
+
+interface  많이먹는게가능한 {
+    public void  많이먹다()  ;
+}
+ 
+
+interface 나는게가능한{
+      public  void 날수있다();
+}
+
+
+
+interface  변신가능한{
+     public void  변신하기();
+}
+
+
+
+interface  싸움이가능한17대1{
+    public void  싸움하기();
+}
+
+
+interface 장풍이가능한 {
+    public void  장풍날리기();
+}
+
+interface  불어가능한{
+     public void  불어를한다();
+}
+
+
+interface 태권도가가능한{
+    public void  태권도하기();
+
+}
+

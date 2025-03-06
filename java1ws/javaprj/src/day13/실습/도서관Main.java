@@ -36,6 +36,10 @@ public class 도서관Main {
 				break;
 			
 			case 3:
+				
+				반납하기(sc, list);
+				
+				
 				break;
 			
 			case 4:
@@ -47,24 +51,36 @@ public class 도서관Main {
 			
 			}
 			
-			
-			
-			
-			
-			
-			
-			
-			
-			
 		}
-		
-		
-		
-		
-		
-		
+	
 	}
 
+	public static void 반납하기(Scanner sc, ArrayList<Book> list) {
+		System.out.println("\n*****************");
+		System.out.println("\n반납할 도서의 제목을 입력하세요.");
+		sc.nextLine();
+		
+		String returnTitle = sc.nextLine();
+		Book returnBook = null;
+		for(int i=0;i<list.size();i++) {
+			Book b = list.get(i);
+					
+			if(b.getTitle().equals(returnTitle)) {
+				returnBook = b;
+				break;
+			}
+		}
+		if(returnBook != null) {
+			returnBook.number++;
+			returnBook.setNumber(returnBook.number);
+			System.out.println("반납 완료");
+		}else {
+			System.out.println("반납 실패");
+		}
+	}
+
+	
+	
 	public static void 대출하기(Scanner sc, ArrayList<Book> list) {
 		System.out.println("\n*****************\n");
 		System.out.println("대출할 책 제목을 입력하세요");
