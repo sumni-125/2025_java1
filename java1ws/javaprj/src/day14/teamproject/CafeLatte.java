@@ -8,4 +8,9 @@ public class CafeLatte implements Order{
 		return menu;
 	}
 
+	@Override
+	public int cost() {
+		// TODO Auto-generated method stub
+		return 3000;
+	}
 }

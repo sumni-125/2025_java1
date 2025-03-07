@@ -1,16 +1,17 @@
-package day14.teamproject;
+package teamproject.copy;
 
-public class GrapefruitAde implements Order{
+public class CitronTea implements Order{
 
 	@Override
 	public String Order() {
-		String menu="자몽에이드";
+		String menu="유자차";
 		return menu;
 	}
+	
 	@Override
 	public int cost() {
 		// TODO Auto-generated method stub
-		return 2500;
+		return 3600;
 	}
 
 }

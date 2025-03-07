@@ -1,20 +1,20 @@
-package day14.teamproject;
+package teamproject.copy;
 
 import java.util.Scanner;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
-public class Main2 {
+public class Main {
 
 	static ArrayList<User> users = new ArrayList<>();
 	static User LoggedInUser = null;
 
 	public static void main(String[] args) {
-
 		Scanner sc = new Scanner(System.in);
 		ArrayList<String> menuname = new ArrayList<>();
 		ArrayList<Integer> menucost = new ArrayList<>();
+		ArrayList<Integer> menuquantity = new ArrayList<>();
 
 		loop: while (true) {
 			if (LoggedInUser == null) {
@@ -34,33 +34,30 @@ public class Main2 {
 					System.out.println("잘못된 입력입니다");
 				}
 			} else {
-
 				System.out.println("1.커피 2.티 3.음료 4.주문완료");
-				int category = sc.nextInt();
-
-				String order = "";
-				int cost = 0;
+				int category = Integer.parseInt(sc.nextLine());
+				int qty;
 				switch (category) {
 				case 1:
-					order = selectCoffee(sc);
-					
-					menuname.add(order);
-					menucost.add(cost);
+					Order coffeeOrder = selectCoffee(sc);
+					System.out.print("수량을 입력하세요: ");
+					qty = Integer.parseInt(sc.nextLine());
+					addOrder(menuname, menucost, menuquantity, coffeeOrder, qty);
 					break;
 				case 2:
-					order = selectTea(sc);
-					cost = selectTea2(sc);
-					menuname.add(order);
-					menucost.add(cost);
+					Order teaOrder = selectTea(sc);
+					System.out.print("수량을 입력하세요: ");
+					qty = Integer.parseInt(sc.nextLine());
+					addOrder(menuname, menucost, menuquantity, teaOrder, qty);
 					break;
 				case 3:
-					order = selectDrink(sc);
-					cost = selectDrink2(sc);
-					menuname.add(order);
-					menucost.add(cost);
+					Order drinkOrder = selectDrink(sc);
+					System.out.print("수량을 입력하세요: ");
+					qty = Integer.parseInt(sc.nextLine());
+					addOrder(menuname, menucost, menuquantity, drinkOrder, qty);
 					break;
 				case 4:
-					print(menuname,menucost);
+					print(menuname, menucost, menuquantity);
 					break loop;
 				default:
 					System.out.println("잘못된 입력입니다");
@@ -70,20 +67,23 @@ public class Main2 {
 		}
 	}
 
-	static String selectCoffee(Scanner sc) {
+	static Order selectCoffee(Scanner sc) {
 		System.out.println("1.아메리카노 2.메가리카노 3.콜드브루 4.콜드브루라떼 5.카페라떼 6.카페모카 7.바닐라라떼");
-		Order ordername = setCoffee(sc);
-		String orderInfo = ordername.Order()+" "+Integer.toString(ordername.cost());
-		return orderInfo;
+		return setCoffee(sc);
 	}
 
-	static int selectCoffee2(Scanner sc) {
-		Order ordercost = setCoffee(sc);
-		return ordercost.cost();
+	static Order selectTea(Scanner sc) {
+		System.out.println("1.복숭아아이스티 2.유자차 3.자몽차");
+		return setTea(sc);
+	}
+
+	static Order selectDrink(Scanner sc) {
+		System.out.println("1.청포도에이드 2.레모네이드 3.라임모히또 4.메가에이드 5.딸기요거트스무디 6.골드키위주스");
+		return setDrink(sc);
 	}
 
 	public static Order setCoffee(Scanner sc) {
-		int choice = sc.nextInt();
+		int choice = Integer.parseInt(sc.nextLine());
 		if (choice == 1) {
 			return new Americano();
 		} else if (choice == 2) {
@@ -104,19 +104,8 @@ public class Main2 {
 		}
 	}
 
-	static String selectTea(Scanner sc) {
-		System.out.println("1.복숭아아이스티 2.유자차 3.자몽차");
-		Order ordername = setTea(sc);
-		return ordername.Order();
-	}
-
-	static int selectTea2(Scanner sc) {
-		Order ordercost = setTea(sc);
-		return ordercost.cost();
-	}
-
 	public static Order setTea(Scanner sc) {
-		int choice = sc.nextInt();
+		int choice = Integer.parseInt(sc.nextLine());
 		if (choice == 1) {
 			return new PeachIcedTea();
 		} else if (choice == 2) {
@@ -129,19 +118,8 @@ public class Main2 {
 		}
 	}
 
-	static String selectDrink(Scanner sc) {
-		System.out.println("1.청포도에이드 2.레모네이드 3.라임모히또 4.메가에이드 5.딸기요거트스무디 6.골드키위주스");
-		Order ordername = setDrink(sc);
-		return ordername.Order();
-	}
-
-	static int selectDrink2(Scanner sc) {
-		Order ordercost = setDrink(sc);
-		return ordercost.cost();
-	}
-
 	public static Order setDrink(Scanner sc) {
-		int choice = sc.nextInt();
+		int choice = Integer.parseInt(sc.nextLine());
 		if (choice == 1) {
 			return new GrapefruitAde();
 		} else if (choice == 2) {
@@ -158,6 +136,23 @@ public class Main2 {
 			System.out.println("잘못된 입력입니다");
 			return null;
 		}
+	}
+
+	static void addOrder(ArrayList<String> menuname, ArrayList<Integer> menucost, ArrayList<Integer> menuquantity,
+			Order order, int qty) {
+		String itemName = order.Order();
+		int itemCost = order.cost();
+
+		for (int i = 0; i < menuname.size(); i++) {
+			if (menuname.get(i).equals(itemName)) {
+				menuquantity.set(i, menuquantity.get(i) + qty);
+				return;
+			}
+		}
+
+		menuname.add(itemName);
+		menucost.add(itemCost);
+		menuquantity.add(qty);
 	}
 
 	static void signUp(Scanner sc) {
@@ -194,15 +189,28 @@ public class Main2 {
 		System.out.println("로그인 실패: 아이디 또는 비밀번호가 일치하지 않습니다");
 	}
 
-	static void print(ArrayList<String> menu, ArrayList<Integer> cost) {
+	static void print(ArrayList<String> menu, ArrayList<Integer> cost, ArrayList<Integer> quantity) {
 		System.out.println("=========주문내역=========");
 		System.out.println("사용자 이름 : " + users.get(0).getName());
 		System.out.println("사용자 ID : " + users.get(0).getId());
+
 		int idx = 1;
+		int sum = 0;
+
+		System.out.println("-------------------------------------------------------");
+		System.out.printf("%-3s %-20s %6s %10s %10s\n", "No", "메뉴", "수량", "단가", "합계");
+		System.out.println("-------------------------------------------------------");
+
 		for (int i = 0; i < menu.size(); i++) {
-			System.out.println((idx) + ". " + menu.get(i) + cost.get(i));
+			int totalCost = cost.get(i) * quantity.get(i);
+			System.out.printf("%-3d %-20s %6d %10d원 %10d원\n", idx, menu.get(i), quantity.get(i), cost.get(i),
+					totalCost);
+			sum += totalCost;
 			idx++;
 		}
+
+		System.out.println("-------------------------------------------------------");
+		System.out.printf("%-30s %20d원\n", "총 가격:", sum);
 		System.out.println("주문시간 : " + gettingDate());
 	}
 

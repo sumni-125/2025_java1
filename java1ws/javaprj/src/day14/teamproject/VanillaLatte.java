@@ -7,5 +7,11 @@ public class VanillaLatte implements Order{
 		String menu="바닐라라떼";
 		return menu;
 	}
+	
+	@Override
+	public int cost() {
+		// TODO Auto-generated method stub
+		return 2500;
+	}
 
 }

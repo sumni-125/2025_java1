@@ -8,4 +8,10 @@ public class Americano implements Order {
 		return menu;
 	}
 
+	@Override
+	public int cost() {
+		// TODO Auto-generated method stub
+		return 1500;
+	}
+
 }

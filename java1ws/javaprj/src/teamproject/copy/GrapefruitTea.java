@@ -1,10 +1,10 @@
-package day14.teamproject;
+package teamproject.copy;
 
-public class GrapefruitAde implements Order{
+public class GrapefruitTea implements Order{
 
 	@Override
 	public String Order() {
-		String menu="자몽에이드";
+		String menu="자몽차";
 		return menu;
 	}
 	@Override
