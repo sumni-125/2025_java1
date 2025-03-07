@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class 계산기프로그램 {
 	Calculator calculator;
 	
-	//생성자 세트를 통해서 게산기 객체가 들어와야 한다 주입
+	//생성자 세트를 통해서 계산기 객체가 들어와야 한다 주입
 	public void setCalculator(Calculator calculator) {
 		this.calculator = calculator;
 	}
